@@ -1,8 +1,11 @@
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 // import ChildComponent from "./child";
 // import TimerComponent from "./timer";
 import MainPage from "./main";
+import { Switch, Route } from "react-router-dom";
+import UploadPage from "./upload";
+import ProductPage from "./product";
 
 function App() {
   // const text = "인프런 수강생 여러분 화이팅!";
@@ -40,7 +43,21 @@ function App() {
   //     </div>
   //   </div>
   // );
-  return <MainPage />;
+  return (
+    <div>
+      <Switch>
+        <Route exact={true} path="/">
+          <MainPage />
+        </Route>
+        <Route exact={true} path="/product/:id">
+          <ProductPage />
+        </Route>
+        <Route exact={true} path="/upload">
+          <UploadPage />
+        </Route>
+      </Switch>
+    </div>
+  );
 }
 
 export default App;
