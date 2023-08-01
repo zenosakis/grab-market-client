@@ -1,4 +1,5 @@
+// export const SERVER_TYPE = "EXPRESS"; //<- grab-market-server 용 (강의)
+export const SERVER_TYPE = "NEST"; //<- grab-market-server-nest 용
+
 export const API_URL =
-  process.env.NODE_ENV === "production"
-    ? "http://19.19.20.200:8080"
-    : "http://localhost:8080";
+  SERVER_TYPE === "EXPRESS" ? "http://localhost:8080" : "http://localhost:3000";

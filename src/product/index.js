@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./index.css";
-import { API_URL } from "../config/constants.js";
+import { SERVER_TYPE, API_URL } from "../config/constants.js";
 import dayjs from "dayjs";
 import { Button, message } from "antd";
 
@@ -34,7 +34,11 @@ function ProductPage() {
 
   const onClickPurchase = () => {
     axios
-      .post(`${API_URL}/purchase/${id}`)
+      .post(
+        SERVER_TYPE === "EXPRESS"
+          ? `${API_URL}/purchase/${id}`
+          : `${API_URL}/products/purchase/${id}`
+      )
       .then((result) => {
         getProduct();
       })
